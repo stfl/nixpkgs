@@ -370,7 +370,7 @@ with lib;
         qemuGuest.enable = true;
       };
 
-      proxmox.qemuExtraConf.${cfg.cloudInit.device} =
+      proxmox.qemuExtraConf.${cfg.cloudInit.device} = lib.mkIf cfg.cloudInit.enable
         "${cfg.cloudInit.defaultStorage}:vm-9999-cloudinit,media=cdrom";
     };
 }
